@@ -1,0 +1,13 @@
+language: elixir
+otp_release:
+  - 17.4
+cache:
+  - apt
+  - directories:
+      - ~/.dynamodb
+after_script:
+  - mix deps.get --only docs
+  - MIX_ENV=docs mix inch.report
+notifications:
+  recipients:
+    - eric.meadows.jonsson@gmail.com
